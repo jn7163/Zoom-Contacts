@@ -85,8 +85,8 @@ class ViewController: UIViewController {
         avPlayerPlaceholderView.subviews.first?.removeFromSuperview()
         avPlayerController = nil
         
-        // TODO: - Toast
-//        AlertController.alert("removed", completionHandler: nil)
+        let message = NSLocalizedString("Animation Stopped...", comment: "")
+        Toast.make(message, delay: 0, interval: 5)
     }
     
     private func configureSubViews() {
