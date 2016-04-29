@@ -1,6 +1,6 @@
-Seeking for more features?  Go check [`Phonetic`](https://github.com/iAugux/Phonetic)
+###Seeking for more features?   Go check [`Phonetic`](https://github.com/iAugux/Phonetic)
 
-</br>
+
 # Zoom Contacts
 
 ![Language](https://img.shields.io/badge/language-Swift%202.2-orange.svg)
