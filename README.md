@@ -1,3 +1,6 @@
+Seeking for more features?  Go check [`Phonetic`](https://github.com/iAugux/Phonetic)
+
+</br>
 # Zoom Contacts
 
 ![Language](https://img.shields.io/badge/language-Swift%202.2-orange.svg)
@@ -13,6 +16,7 @@
 <a href="https://itunes.apple.com/app/id1078961574"> <img src="https://raw.githubusercontent.com/iAugux/ProjectScreenshots/master/Phonetic/AppStore.png" width="110px">
 </a>
 </div>-->
+
 
 ## Features
 
