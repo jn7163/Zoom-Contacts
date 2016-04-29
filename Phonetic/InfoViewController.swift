@@ -47,7 +47,7 @@ class InfoViewController: UIViewController, SFSafariViewControllerDelegate {
     func checkOnGithub() {
         
         dismissViewControllerAnimated(true) { () -> Void in
-            let safariVC = SFSafariViewController(URL: NSURL(string: "https://github.com/iAugux/Phonetic")!)
+            let safariVC = SFSafariViewController(URL: NSURL(string: "https://github.com/iAugux/Zoom-Contacts")!)
             safariVC.delegate = self
             UIApplication.topMostViewController?.presentViewController(safariVC, animated: true, completion: {
                 UIApplication.sharedApplication().statusBarStyle = .Default
