@@ -1,0 +1,185 @@
+/* */
+"OK" = "好";
+
+/* No comment provided by engineer. */
+"%@ for Quick Search" = "%@";
+
+/* UIAlertController - title */
+"Abort" = "中止";
+
+/* No comment provided by engineer. */
+"Aborted" = "中止";
+
+/* navigation item title - About */
+"About" = "關於";
+
+/* SettingsNavigationController title - Additional Settings */
+"Additional Settings" = "更多設置";
+
+/* UIAlertController - message */
+"Are you sure to clean all Mandarin Latin's phonetic keys?" = "確定清除所有中文拼音欄位？";
+
+/* UIAlertController - message */
+" This can not be revoked!!" = "清除後無法恢復！！";
+
+/* UIAlertController - message */
+" And clean following keys you've chosen?" = "並且清除下列你已選擇的欄位？";
+
+/* alert action - Cancel
+ UIAlertAction - title
+ UIAlertAction title - do not to clean phonetic keys */
+"Cancel" = "取消";
+
+/* Table view header title */
+"Clean Phonetic Keys" = "清除通訊錄欄位";
+
+/* UIAlertAction title - clean all phonetic keys */
+"Clean" = "清除";
+
+/* No comment provided by engineer. */
+"Company" = "公司欄位";
+
+/* No comment provided by engineer. */
+"Completed" = "完成";
+
+/* No comment provided by engineer. */
+"Department" = "部門欄位";
+
+/* No comment provided by engineer. */
+"Nickname" = "昵称欄位";
+
+/* No comment provided by engineer. */
+"Social Profiles" = "社交资料欄位";
+
+/* No comment provided by engineer. */
+"Instant Message Addresses" = "即时信息欄位";
+
+/* Table view footer title */
+"Enable animation even audio is playing in background." = "即使有音頻在後台播放也開啟動畫。";
+
+/* Navigation title */
+"Help Manual" = "幫助手冊";
+
+/* Table view footer title */
+"If the device language is not Chinese, the switch will be forced open." = "如果設備的語言不是中文，開關將被強制打開。";
+
+/* alert controller message */
+"If you enjoy using Phonetic Contacts, would you mind taking a moment to rate it? It won't take more than one minute. Thanks a lot!" = "如果您喜歡使用 Phonetic Contacts，煩請花點時間給它評分。感謝您的支持！";
+
+/* No comment provided by engineer. */
+"Job Title" = "職位欄位";
+
+/* Table view footer title */
+"Keep `Settings Window` open after dismissing `Additional Settings Window`." = "“更多設置窗口”關閉後保持“設置窗口”開啟。";
+
+/* No comment provided by engineer. */
+"Middle Name" = "中間名欄位";
+
+/* No comment provided by engineer. */
+"Off" = "關";
+
+/* No comment provided by engineer. */
+"On" = "開";
+
+/* Table view header title */
+"Phonetic Contacts" = "Phonetic Contacts";
+
+/* UIAlertController message */
+"Please allow `Phonetic` to access your Contacts through the Settings." = "請通過設置允許“Phonetic”訪問你的通訊錄。";
+
+/* No comment provided by engineer. */
+"Prefix" = "前綴欄位";
+
+/* No comment provided by engineer. */
+"Processing" = "正在處理中";
+
+/* UIAlertController - message */
+"Processing... Are you sure to abort?" = "正在處理中... 確定終止?";
+
+/* No comment provided by engineer. */
+"Pull Down to Dismiss" = "下拉關閉";
+
+/* Table view header title */
+"Quick Search" = "欄位用於快速搜索";
+
+/* alert action - Rate */
+"Rate" = "打分";
+
+/* alert action - Cancel */
+"No, thanks" = "取消";
+
+/* alert controller title - rate me */
+"Rate ♡ Phonetic" = "給我打分";
+
+/* navigation item title - Settings
+ UIAlertAction - title */
+"Settings" = "設置";
+
+/* UIAlertController title */
+"Setting" = "設置";
+
+/* No comment provided by engineer. */
+"Suffix" = "後綴欄位";
+
+/* Table view header title */
+"User Interface Settings" = "用戶界面設置";
+
+/* UIAlertController - title */
+"Warning!" = "警告！";
+
+/* Table view footer title */
+"e.g: Add a phonetic Nickname / %@ key for `叶梓萱` with `YZX`. Then you can enter `YZX` to search the specific name." = "比如：為 “葉梓萱” 添加 “YZ​​X” 的暱稱或%@，直接輸入 “YZX” 就可以快速搜索到聯繫人。";
+
+/* Table view footer title */
+"⚠️ Be Careful. All of those keys including you manually added before will be removed!" = "⚠️ 請注意！包括之前手動添加的欄位都將被清除掉。";
+
+/* UIAlertController message */
+"Please tap the yellow button to complete settings. This message is only displayed once!" = "請點擊黃色按鈕來完成設置。本條消息只顯示一次！";
+
+/* alert controller title */
+"Choose Key for Quick Search" = "選擇欄位用於快速搜索";
+
+/* alert controller message */
+"`Nickname Key` is highly recommended. This message is only displayed once! You can also set it later in settings." = "推薦使用`暱稱欄位`。本條消息只顯示一次！你也可以稍後自行設置。";
+
+/* alert action title */
+"Go Setting" = "去設置";
+
+/* alert action title */
+"I'll Set it Later" = "稍後再設置";
+
+/* alert action title */
+"Already Done. Dismiss" = "已設置，關閉";
+
+/* */
+"Enable All" = "全選";
+
+/* */
+"Disable All" = "全部取消";
+
+/* UIAlertController title */
+"Clean All Keys" = "清除所有欄位";
+
+/* UIAlertController title */
+"Clean Keys" = "清除欄位";
+
+/* UIAlertController message */
+"Are you sure to clean all keys? All of those keys including you manually added before will be removed too! This can not be revoked!!" = "確定清除所有欄位？包括之前手動添加的欄位都將被清除掉！清除後將無法恢復！！";
+
+/* UIAlertController message */
+"Are you sure to clean Social Profiles keys? This can not be revoked!!" = "確定清除所有個人社交資料欄位？清除後將無法恢復！！";
+
+/* UIAlertController message */
+"Are you sure to clean Instant Message Addresses keys? This can not be revoked!!" = "確定清除所有即時信息欄位？清除後將無法恢復！！";
+
+
+/* Local Notification - alert body */
+"Mission Completed !" = "任務完成！";
+
+/* Local Notification - App terminated notification */
+"Phonetic is about to be terminated! Please open it again to complete the mission." = "Phonetic 將要中止運行！請再次打開以完成任務。";
+
+// 3D Touch items
+
+"Add Phonetic Keys" = "添加拼音欄位";
+"Clean Phonetic Keys" = "清除拼音欄位";
