@@ -53,6 +53,11 @@
 		B19CB8301CD36B83006C1AD9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B19CB82E1CD36B83006C1AD9 /* Main.storyboard */; };
 		B19CB8331CD370A3006C1AD9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B19CB8351CD370A3006C1AD9 /* InfoPlist.strings */; };
 		B19CB83D1CD386FB006C1AD9 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19CB83C1CD386FB006C1AD9 /* UIView+Extension.swift */; };
+		B19CB83F1CD3C23E006C1AD9 /* UIStoryboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19CB83E1CD3C23E006C1AD9 /* UIStoryboard+Extension.swift */; };
+		B19CB8461CD3D259006C1AD9 /* CWStatusBarNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19CB8431CD3D259006C1AD9 /* CWStatusBarNotification.swift */; };
+		B19CB8471CD3D259006C1AD9 /* CWStatusBarNotificationUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19CB8441CD3D259006C1AD9 /* CWStatusBarNotificationUtils.swift */; };
+		B19CB8481CD3D259006C1AD9 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19CB8451CD3D259006C1AD9 /* Toast.swift */; };
+		B19CB84C1CD47BF5006C1AD9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B19CB84B1CD47BF5006C1AD9 /* main.m */; };
 		B1A2AF4F1C8078120080A261 /* PhoneticContacts+Polyphonic.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A2AF4E1C8078120080A261 /* PhoneticContacts+Polyphonic.swift */; };
 		B1B1CB631C5E25E300AD7E73 /* ViewController+Rate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B1CB621C5E25E300AD7E73 /* ViewController+Rate.swift */; };
 		B1C5BBEE1CA27EA9009B0A71 /* UIDevice+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C5BBED1CA27EA9009B0A71 /* UIDevice+Extension.swift */; };
@@ -142,6 +147,12 @@
 		B19CB8391CD37435006C1AD9 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		B19CB83B1CD37437006C1AD9 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Main.strings"; sourceTree = "<group>"; };
 		B19CB83C1CD386FB006C1AD9 /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		B19CB83E1CD3C23E006C1AD9 /* UIStoryboard+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Extension.swift"; sourceTree = "<group>"; };
+		B19CB8431CD3D259006C1AD9 /* CWStatusBarNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWStatusBarNotification.swift; sourceTree = "<group>"; };
+		B19CB8441CD3D259006C1AD9 /* CWStatusBarNotificationUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWStatusBarNotificationUtils.swift; sourceTree = "<group>"; };
+		B19CB8451CD3D259006C1AD9 /* Toast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
+		B19CB84B1CD47BF5006C1AD9 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B19CB84F1CD48790006C1AD9 /* ZoomContacts-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ZoomContacts-Bridging-Header.h"; sourceTree = "<group>"; };
 		B1A2AF4E1C8078120080A261 /* PhoneticContacts+Polyphonic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PhoneticContacts+Polyphonic.swift"; sourceTree = "<group>"; };
 		B1B1CB621C5E25E300AD7E73 /* ViewController+Rate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+Rate.swift"; sourceTree = "<group>"; };
 		B1C5BBED1CA27EA9009B0A71 /* UIDevice+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIDevice+Extension.swift"; sourceTree = "<group>"; };
@@ -313,6 +324,8 @@
 				B1159B781C59045800F16037 /* LaunchScreen.storyboard */,
 				B19CB8351CD370A3006C1AD9 /* InfoPlist.strings */,
 				B16FEB2F1C779F6400FEB550 /* Localizable.strings */,
+				B19CB84B1CD47BF5006C1AD9 /* main.m */,
+				B19CB84F1CD48790006C1AD9 /* ZoomContacts-Bridging-Header.h */,
 				B1159B7B1C59045800F16037 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -343,10 +356,21 @@
 		B19686501C5CEDFF006F4614 /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				B19CB8421CD3D259006C1AD9 /* CWStatusBarNotification */,
 				B12090901C6BBA3C00997E0A /* BlurActionSheet */,
 				B1887A821C639AE900AD9BC2 /* DGElasticPullToRefresh */,
 			);
 			name = ThirdParty;
+			sourceTree = "<group>";
+		};
+		B19CB8421CD3D259006C1AD9 /* CWStatusBarNotification */ = {
+			isa = PBXGroup;
+			children = (
+				B19CB8431CD3D259006C1AD9 /* CWStatusBarNotification.swift */,
+				B19CB8441CD3D259006C1AD9 /* CWStatusBarNotificationUtils.swift */,
+				B19CB8451CD3D259006C1AD9 /* Toast.swift */,
+			);
+			path = CWStatusBarNotification;
 			sourceTree = "<group>";
 		};
 		B1C8520B1C856AD2005549FD /* Extensions */ = {
@@ -367,6 +391,7 @@
 				B1C852171C856AD2005549FD /* UIViewController+Extension.swift */,
 				B1C852281C856C71005549FD /* UIViewController+PullToDismiss.swift */,
 				B1128A101CBA873A000258E2 /* Utils.swift */,
+				B19CB83E1CD3C23E006C1AD9 /* UIStoryboard+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -418,7 +443,7 @@
 		B1159B641C59045800F16037 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0720;
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = iAugus;
 				TargetAttributes = {
@@ -539,12 +564,14 @@
 				B18AC2031C7104F20090AE16 /* SettingsNavigationController.swift in Sources */,
 				B12090961C6BBA3C00997E0A /* BlurBackgroundView.swift in Sources */,
 				B122926B1C59236F00F0F549 /* PhoneticContacts.swift in Sources */,
+				B19CB8481CD3D259006C1AD9 /* Toast.swift in Sources */,
 				B1C852221C856AD2005549FD /* UISwitch+Extension.swift in Sources */,
 				B16942721C622A7E000D5BFE /* BlurImageView.swift in Sources */,
 				B1B1CB631C5E25E300AD7E73 /* ViewController+Rate.swift in Sources */,
 				B1C8521A1C856AD2005549FD /* DEBUGLog.swift in Sources */,
 				B16942701C6211FB000D5BFE /* AdditionalSettingsViewController.swift in Sources */,
 				B1887A881C639AE900AD9BC2 /* DGElasticPullToRefreshConstants.swift in Sources */,
+				B19CB84C1CD47BF5006C1AD9 /* main.m in Sources */,
 				B1FF84E61C5BC7B70036F8AA /* ViewController+Popover.swift in Sources */,
 				B15CB2A51C5B3C6C002694ED /* WaveView.swift in Sources */,
 				B1C8521C1C856AD2005549FD /* TopMostViewController+Extension.swift in Sources */,
@@ -555,6 +582,8 @@
 				B121B1B11C7C899B00DC0C05 /* PolyphonicTableViewCell.swift in Sources */,
 				B1887A8B1C639AE900AD9BC2 /* DGElasticPullToRefreshLoadingViewCircle.swift in Sources */,
 				B1C852081C8566DB005549FD /* ViewController+Initialize.swift in Sources */,
+				B19CB8461CD3D259006C1AD9 /* CWStatusBarNotification.swift in Sources */,
+				B19CB8471CD3D259006C1AD9 /* CWStatusBarNotificationUtils.swift in Sources */,
 				B1159B721C59045800F16037 /* ViewController.swift in Sources */,
 				B1C8521F1C856AD2005549FD /* UIColor+Extension.swift in Sources */,
 				B1C852291C856C71005549FD /* UIViewController+PullToDismiss.swift in Sources */,
@@ -570,6 +599,7 @@
 				B1128A111CBA873A000258E2 /* Utils.swift in Sources */,
 				B1C852201C856AD2005549FD /* UINavigationController+Extension.swift in Sources */,
 				B1C8521B1C856AD2005549FD /* NSUserDefaults+Extension.swift in Sources */,
+				B19CB83F1CD3C23E006C1AD9 /* UIStoryboard+Extension.swift in Sources */,
 				B1128A0F1CBA177A000258E2 /* AppDelegate+3DTouch.swift in Sources */,
 				B1C8521E1C856AD2005549FD /* UIButton+Extension.swift in Sources */,
 				B12090941C6BBA3C00997E0A /* BlurActionSheet.swift in Sources */,
@@ -683,6 +713,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -741,13 +772,17 @@
 			baseConfigurationReference = F1D324EB01C7DAC68EDE2E02 /* Pods-Zoom Contacts.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INFOPLIST_FILE = Phonetic/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "-D DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.iAugus.PhoneticQuickSearch;
 				PRODUCT_NAME = "Zoom Contacts";
+				SWIFT_OBJC_BRIDGING_HEADER = "Phonetic/ZoomContacts-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -756,6 +791,7 @@
 			baseConfigurationReference = A4DC4E794528F7D30A463756 /* Pods-Zoom Contacts.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				INFOPLIST_FILE = Phonetic/Info.plist;
@@ -763,6 +799,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.iAugus.PhoneticQuickSearch;
 				PRODUCT_NAME = "Zoom Contacts";
+				SWIFT_OBJC_BRIDGING_HEADER = "Phonetic/ZoomContacts-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -770,6 +807,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INFOPLIST_FILE = PhoneticTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.iAugus.PhoneticTests;

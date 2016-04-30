@@ -59,11 +59,7 @@ class ViewController: UIViewController {
         NSTimer.scheduledTimerWithTimeInterval(3.0, target: self, selector: #selector(rateMeInTheSecondTime), userInfo: nil, repeats: false)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(showLabels), name: kVCWillDisappearNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(popoverSettingViewController), name: kDismissedAdditionalSettingsVCNotification, object: nil)
-    }
-    
-    override func viewWillDisappear(animated: Bool) {
-        super.viewWillDisappear(animated)
-        pauseVideo()
+        
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -75,7 +71,11 @@ class ViewController: UIViewController {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        alertToChooseQuickSearchKeyIfNeeded()
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        pauseVideo()
     }
     
     override func didReceiveMemoryWarning() {

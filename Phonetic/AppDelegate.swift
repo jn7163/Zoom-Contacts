@@ -9,6 +9,9 @@
 import UIKit
 import Contacts
 
+
+let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -23,13 +26,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         application.statusBarStyle = .LightContent
         window?.backgroundColor = UIColor.clearColor()
         
-        requestAccess()
+//        requestAccess()
         
         // clear icon badge number if needed.
         application.applicationIconBadgeNumber = 0
         
         application.beginBackgroundTaskWithName("showNotification", expirationHandler: nil)
 
+        
         return true
     }
 

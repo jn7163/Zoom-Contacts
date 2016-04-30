@@ -510,7 +510,7 @@ extension AdditionalSettingsViewController {
 extension AdditionalSettingsViewController: TableViewHeaderFooterViewWithButtonDelegate {
     
     func tableViewHeaderFooterViewWithButtonDidTap() {
-        if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier(String(HelpManualViewController)) as? HelpManualViewController {
+        if let vc = UIStoryboard.Main.instantiateViewControllerWithIdentifier(String(HelpManualViewController)) as? HelpManualViewController {
             navigationController?.pushViewController(vc, animated: true)
         }
     }
@@ -606,4 +606,16 @@ extension AdditionalSettingsViewController {
         destinationVC.popoverPresentationController?.sourceRect = polyphonicButton.bounds
         destinationVC.popoverPresentationController?.backgroundColor = kNavigationBarBackgroundColor
     }
+}
+
+
+// MARK: - 
+
+extension AdditionalSettingsViewController {
+    
+    @IBAction func tutorialButtonDidTap(sender: AnyObject) {
+        dismissViewControllerAnimated(true) {
+        }
+    }
+    
 }

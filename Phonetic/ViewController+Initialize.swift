@@ -12,9 +12,21 @@ import Contacts
 
 extension ViewController {
     
-    func alertToChooseQuickSearchKeyIfNeeded() {
+    func initializeInTheFirstTime() {
         
-        guard CNContactStore.authorizationStatusForEntityType(.Contacts) == .Authorized else { return }
+        UIApplication.initializeInTheFirstTime { () -> Void in
+            
+            
+        }
+
+    }
+    
+    var alertToChooseQuickSearchKeyIfNeeded: Bool {
+        
+        guard CNContactStore.authorizationStatusForEntityType(.Contacts) == .Authorized else {
+            appDelegate.requestAccessSelector()
+            return false
+        }
         
         UIApplication.initializeInTheFirstTime { () -> Void in
             
@@ -37,6 +49,7 @@ extension ViewController {
             UIApplication.topMostViewController?.presentViewController(alertController, animated: true, completion: nil)
         }
 
+        return false
     }
     
     private func goSetting() {
