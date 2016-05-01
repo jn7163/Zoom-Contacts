@@ -27,6 +27,7 @@ class AdditionalSettingsViewController: BaseTableViewController {
     @IBOutlet weak var quickSearchSelectionIndicator: UIImageView!
     @IBOutlet weak var quickSearchSelectionLabel: UILabel!
     
+    
     private let userDefaults = NSUserDefaults.standardUserDefaults()
     
     private let on  = NSLocalizedString("On", comment: "")
@@ -34,6 +35,11 @@ class AdditionalSettingsViewController: BaseTableViewController {
 
     private var blurActionSheet: BlurActionSheet!
     
+    @IBOutlet private weak var tutorialButton: UIButton! {
+        didSet {
+            tutorialButton.setTitle(NSLocalizedString("Tutorial", comment: ""), forState: .Normal)
+        }
+    }
     
     @IBOutlet weak var enableAnimationSwitch: UISwitch! {
         didSet {
@@ -67,11 +73,7 @@ class AdditionalSettingsViewController: BaseTableViewController {
     }
     
     private var quickSearchKey: String {
-        if userDefaults.valueForKey(kQuickSearchKeyRawValue) == nil {
-            userDefaults.setInteger(QuickSearch.MiddleName.rawValue, forKey: kQuickSearchKeyRawValue)
-            userDefaults.synchronize()
-        }
-        let rawValue = userDefaults.integerForKey(kQuickSearchKeyRawValue)
+        let rawValue = userDefaults.getInteger(kQuickSearchKeyRawValue, defaultKeyValue: QuickSearch.MiddleName.rawValue)
         return QuickSearch(rawValue: rawValue)?.key ?? QuickSearch(rawValue: 0)!.key
     }
     
@@ -164,7 +166,6 @@ extension AdditionalSettingsViewController {
         cleanPhoneticSuffixSwitch.onTintColor              = GLOBAL_CUSTOM_COLOR
         cleanSocialProfilesKeysSwitch.onTintColor          = GLOBAL_CUSTOM_COLOR
         cleanInstantMessageAddressesKeysSwitch.onTintColor = GLOBAL_CUSTOM_COLOR
-        
     }
     
     override func viewDidLoad() {
@@ -237,7 +238,7 @@ extension AdditionalSettingsViewController {
             
             overwriteAlreadyExistsSwitch.enabled = true
             
-            alertToConfigureForQuickSearchKey()
+//            alertToConfigureForQuickSearchKey()
             
         } else {
             userDefaults.setBool(false, forKey: kEnableNickname)
@@ -615,6 +616,7 @@ extension AdditionalSettingsViewController {
     
     @IBAction func tutorialButtonDidTap(sender: AnyObject) {
         dismissViewControllerAnimated(true) {
+            displayWalkthrough()
         }
     }
     

@@ -35,6 +35,15 @@ extension ViewController {
     }
     
     func execute() {
+        
+        guard PhoneticContacts.sharedInstance.enableNickname || PhoneticContacts.sharedInstance.enableCustomName else {
+            let msg = NSLocalizedString("You haven't enable any key for Quick Search!", comment: "")
+            let ok = NSLocalizedString("OK", comment: "")
+            AlertController.alert(title: msg, actionTitle: ok, completionHandler: nil)
+            
+            return
+        }
+        
         initializeUI(true)
         
         PhoneticContacts.sharedInstance.execute({ () -> Void in
@@ -56,19 +65,27 @@ extension ViewController {
         // the later: ensure be triggered at the beginning while long pressing, or there will be a warning at runtime.
         guard gesture.isKindOfClass(UITapGestureRecognizer) || gesture.state == .Began else { return }
         
+        guard PhoneticContacts.sharedInstance.keysToFetchIfNeeded.count != 0 else {
+            let msg = NSLocalizedString("You haven't choose any keys for cleaning!", comment: "")
+            let ok = NSLocalizedString("OK", comment: "")
+            AlertController.alert(title: msg, actionTitle: ok, completionHandler: nil)
+            
+            return
+        }
+        
         clean()
     }
     
     func clean() {
         
         let title             = NSLocalizedString("Warning!", comment: "UIAlertController - title")
-        let message           = NSLocalizedString("Are you sure to clean all Mandarin Latin's phonetic keys?", comment: "UIAlertController - message")
+//        let message           = NSLocalizedString("Are you sure to clean all Mandarin Latin's phonetic keys?", comment: "UIAlertController - message")
         let okActionTitle     = NSLocalizedString("Clean", comment: "UIAlertAction title - clean all phonetic keys")
         let cancelActionTitle = NSLocalizedString("Cancel", comment: "UIAlertAction title - do not to clean phonetic keys")
         
         let appendingMessage = PhoneticContacts.sharedInstance.messageOfCurrentKeysNeedToBeCleaned
         
-        let alertController   = UIAlertController(title: title, message: message + appendingMessage, preferredStyle: .Alert)
+        let alertController   = UIAlertController(title: title, message: appendingMessage, preferredStyle: .Alert)
         let cancelAction      = UIAlertAction(title: cancelActionTitle, style: .Cancel, handler: nil)
         let okAction          = UIAlertAction(title: okActionTitle, style: .Default) { (_) -> Void in
             

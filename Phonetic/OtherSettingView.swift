@@ -66,7 +66,7 @@ class OtherSettingView: UIStackView, MFMailComposeViewControllerDelegate, SFSafa
     
     // MARK: - Rate me
     static func RateMe() {
-        let appURL = NSURL(string: "https://itunes.apple.com/app/viewContentsUserReviews?id=1078961574")
+        let appURL = NSURL(string: "https://itunes.apple.com/app/viewContentsUserReviews?id=1109288786")
         if UIApplication.sharedApplication().canOpenURL(appURL!) {
             UIApplication.sharedApplication().openURL(appURL!)
         }
@@ -78,7 +78,7 @@ class OtherSettingView: UIStackView, MFMailComposeViewControllerDelegate, SFSafa
             picker = MFMailComposeViewController()
             picker?.mailComposeDelegate = self
             picker?.setToRecipients(["iAugux@gmail.com"])
-            picker?.setSubject("Phonetic Contacts Feedback")
+            picker?.setSubject("Zoom Contacts Feedback")
             
             if let version = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleShortVersionString") as? String {
                 if let build = NSBundle.mainBundle().objectForInfoDictionaryKey(kCFBundleVersionKey as String) as? String {

@@ -162,7 +162,7 @@ extension PhoneticContacts {
             shouldCleanPhoneticSuffixKeys ||
             shouldCleanSocialProfilesKeys ||
             shouldCleanInstantMessageAddressesKeys {
-                str = NSLocalizedString(" And clean following keys you've chosen?", comment: "")
+                str = NSLocalizedString("Clean following keys you've chosen?", comment: "")
         }
         
         str += NSLocalizedString(" This can not be revoked!!", comment: "")

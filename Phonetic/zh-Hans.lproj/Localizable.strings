@@ -23,7 +23,7 @@
 " This can not be revoked!!" = "清除后无法恢复！！";
 
 /* UIAlertController - message */
-" And clean following keys you've chosen?" = "并且清除下列你已选择的字段？";
+"Clean following keys you've chosen?" = "清除下列你已选择的字段？";
 
 /* alert action - Cancel
    UIAlertAction - title
@@ -64,7 +64,7 @@
 "If the device language is not Chinese, the switch will be forced open." = "如果设备的语言不是中文，开关将被强制打开。";
 
 /* alert controller message */
-"If you enjoy using Phonetic Contacts, would you mind taking a moment to rate it? It won't take more than one minute. Thanks a lot!" = "如果您喜欢使用 Phonetic Contacts，烦请花点时间给它评分。感谢您的支持！";
+"If you enjoy using this App, would you mind taking a moment to rate it? It won't take more than one minute. Thanks a lot!" = "如果您喜欢使用本应用，烦请花点时间给它评分。感谢您的支持！";
 
 /* No comment provided by engineer. */
 "Job Title" = "职位字段";
@@ -85,7 +85,7 @@
 "Phonetic Contacts" = "Phonetic Contacts";
 
 /* UIAlertController message */
-"Please allow `Phonetic` to access your Contacts through the Settings." = "请通过设置允许“Phonetic”访问你的通讯录。";
+"Please allow to access your Contacts through the Settings." = "请通过设置允许访问你的通讯录。";
 
 /* No comment provided by engineer. */
 "Prefix" = "前缀字段";
@@ -109,7 +109,7 @@
 "No, thanks" = "取消";
 
 /* alert controller title - rate me */
-"Rate ♡ Phonetic" = "给我打分";
+"Rate ♡ Me" = "给我打分";
 
 /* navigation item title - Settings
    UIAlertAction - title */
@@ -177,7 +177,10 @@
 "Mission Completed !" = "任务完成！";
 
 /* Local Notification - App terminated notification */
-"Phonetic is about to be terminated! Please open it again to complete the mission." = "Phonetic 将要中止运行！请再次打开以完成任务。";
+"App is about to be terminated! Please open it again to complete the mission." = "软件将要中止运行！请再次打开以完成任务。";
+
+"You haven't enable any key for Quick Search!" = "你还没有选择任何字段用于快速搜索！";
+"You haven't choose any keys for cleaning!" = "你还没有选择任何字段用于清除！";
 
 // 3D Touch items
 
@@ -187,5 +190,18 @@
 
 "Animation Stopped..." = "动画已停止...";
 
-"Previous" = "上一页";
-"Next" = "下一页";
+
+// MARK: - Walkthrough
+
+"Tutorial" = "引导";
+"Skip" = "跳过";
+
+"Access Contacts" = "访问通讯录";
+"Contacts permission is required." = "通讯录权限是必要的";
+"Push Notification" = "推送通知";
+"Once the mission completed, you'll receive Notification." = "当任务完成时，你将收到通知提醒";
+"Choose a key for Quick Search. Default is「Nickname Key」." = "选择一个字段用于快速搜索，默认为「昵称字段」";
+"One More Step" = "最后一步";
+"Tap the Settings icon to configure." = "点击设置图标来配置";
+"Ready to Go" = "准备就绪";
+"Get Started" = "开始";

@@ -11,31 +11,22 @@ import Contacts
 
 extension AppDelegate {
     
-    func requestAccess() {
-        NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(requestAccessSelector), userInfo: nil, repeats: false)
-    }
-    
-    func requestAccessSelector() {
-        requestContactsAccess { (accessGranted) -> Void in
-        }
-    }
-    
-    func requestContactsAccess(completionHandler: (accessGranted: Bool) -> Void) {
+    func requestContactsAccess(completionHandler: ((accessGranted: Bool) -> Void)? = nil) {
         let authStatus = CNContactStore.authorizationStatusForEntityType(.Contacts)
 
         switch authStatus {
             
         case .Authorized:
-            completionHandler(accessGranted: true)
+            completionHandler?(accessGranted: true)
         case .Denied, .NotDetermined:
             contactStore.requestAccessForEntityType(.Contacts, completionHandler: { (access, error) -> Void in
                 if access {
-                    completionHandler(accessGranted: true)
+                    completionHandler?(accessGranted: true)
                 } else {
                     if authStatus == .Denied {
                         dispatch_async(dispatch_get_main_queue(), { () -> Void in
                             let title = error!.localizedDescription + " !!!"
-                            let message = NSLocalizedString("Please allow `Phonetic` to access your Contacts through the Settings.", comment: "UIAlertController message")
+                            let message = NSLocalizedString("Please allow to access your Contacts through the Settings.", comment: "UIAlertController message")
                             self.showAllowContactsAccessMessage(title, message: message)
                         })
                     }
@@ -43,11 +34,11 @@ extension AppDelegate {
             })
             
         default:
-            completionHandler(accessGranted: false)
+            completionHandler?(accessGranted: false)
         }
     }
     
-    private func showAllowContactsAccessMessage(title: String, message: String) {
+    func showAllowContactsAccessMessage(title: String, message: String) {
         let okActionTitle = NSLocalizedString("Settings", comment: "UIAlertAction - title")
         let cancelActionTitle = NSLocalizedString("Cancel", comment: "UIAlertAction - title")
         

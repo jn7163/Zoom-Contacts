@@ -80,11 +80,11 @@ extension PhoneticContacts {
 
 extension PhoneticContacts {
     
-    private var enableNickname: Bool {
+    var enableNickname: Bool {
         return userDefaults.getBool(kEnableNickname, defaultKeyValue: kEnableNicknameDefaultBool)
     }
     
-    private var enableCustomName: Bool {
+    var enableCustomName: Bool {
         return userDefaults.getBool(kEnableCustomName, defaultKeyValue: kEnableCustomNameDefaultBool)
     }
     

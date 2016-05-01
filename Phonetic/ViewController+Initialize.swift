@@ -24,7 +24,7 @@ extension ViewController {
     var alertToChooseQuickSearchKeyIfNeeded: Bool {
         
         guard CNContactStore.authorizationStatusForEntityType(.Contacts) == .Authorized else {
-            appDelegate.requestAccessSelector()
+            appDelegate.requestContactsAccess()
             return false
         }
         

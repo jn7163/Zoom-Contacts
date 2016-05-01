@@ -25,9 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         application.statusBarStyle = .LightContent
         window?.backgroundColor = UIColor.clearColor()
-        
-//        requestAccess()
-        
+                
         // clear icon badge number if needed.
         application.applicationIconBadgeNumber = 0
         

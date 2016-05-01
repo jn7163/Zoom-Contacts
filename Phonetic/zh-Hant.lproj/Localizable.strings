@@ -23,7 +23,7 @@
 " This can not be revoked!!" = "清除後無法恢復！！";
 
 /* UIAlertController - message */
-" And clean following keys you've chosen?" = "並且清除下列你已選擇的欄位？";
+"Clean following keys you've chosen?" = "清除下列你已選擇的欄位？";
 
 /* alert action - Cancel
  UIAlertAction - title
@@ -64,7 +64,7 @@
 "If the device language is not Chinese, the switch will be forced open." = "如果設備的語言不是中文，開關將被強制打開。";
 
 /* alert controller message */
-"If you enjoy using Phonetic Contacts, would you mind taking a moment to rate it? It won't take more than one minute. Thanks a lot!" = "如果您喜歡使用 Phonetic Contacts，煩請花點時間給它評分。感謝您的支持！";
+"If you enjoy using this App, would you mind taking a moment to rate it? It won't take more than one minute. Thanks a lot!" = "如果您喜歡使用這個應用，煩請花點時間給它評分。感謝您的支持！";
 
 /* No comment provided by engineer. */
 "Job Title" = "職位欄位";
@@ -85,7 +85,7 @@
 "Phonetic Contacts" = "Phonetic Contacts";
 
 /* UIAlertController message */
-"Please allow `Phonetic` to access your Contacts through the Settings." = "請通過設置允許“Phonetic”訪問你的通訊錄。";
+"Please allow to access your Contacts through the Settings." = "請通過設置允許訪問你的通訊錄。";
 
 /* No comment provided by engineer. */
 "Prefix" = "前綴欄位";
@@ -109,7 +109,7 @@
 "No, thanks" = "取消";
 
 /* alert controller title - rate me */
-"Rate ♡ Phonetic" = "給我打分";
+"Rate ♡ Me" = "給我打分";
 
 /* navigation item title - Settings
  UIAlertAction - title */
@@ -177,7 +177,11 @@
 "Mission Completed !" = "任務完成！";
 
 /* Local Notification - App terminated notification */
-"Phonetic is about to be terminated! Please open it again to complete the mission." = "Phonetic 將要中止運行！請再次打開以完成任務。";
+"App is about to be terminated! Please open it again to complete the mission." = "軟件將要中止運行！請再次打開以完成任務。";
+
+"You haven't enable any key for Quick Search!" = "你還沒有選擇任何字段用於快速搜索！";
+"You haven't choose any keys for cleaning!" = "你還沒有選擇任何字段用於清除！";
+
 
 // 3D Touch items
 
@@ -187,5 +191,18 @@
 
 "Animation Stopped..." = "動畫已停止...";
 
-"Previous" = "上一頁";
-"Next" = "下一頁";
+
+// MARK: - Walkthrough
+
+"Tutorial" = "引導";
+"Skip" = "跳過";
+
+"Access Contacts" = "訪問通訊錄";
+"Contacts permission is required." = "通訊錄權限是必要的";
+"Push Notification" = "推送通知";
+"Once the mission completed, you'll receive Notification." = "當任務完成時，你將收到通知提醒";
+"Choose a key for Quick Search. Default is「Nickname Key」." = "選擇一個欄位用於快速搜索，默認為「暱稱欄位」";
+"One More Step" = "最後一步";
+"Tap the Settings icon to configure." = "點擊設置圖標來配置";
+"Ready to Go" = "準備就緒";
+"Get Started" = "開始";

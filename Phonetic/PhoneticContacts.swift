@@ -84,9 +84,9 @@ class PhoneticContacts {
         aborted      = !isProcessing
         
         // uncomment the following line if you want to remove all Simulator's Contacts first.
-        //        self.removeAllContactsOfSimulator()
+//                self.removeAllContactsOfSimulator()
         
-        self.insertNewContactsForSimulatorIfNeeded(50)
+        self.insertNewContactsForSimulatorIfNeeded(250)
         //                self.insertNewContactsForDevice(100)
         
         
@@ -294,7 +294,7 @@ class PhoneticContacts {
             // App is about to be terminated, send notification.
             if remainingTime < 10 {
                 localNotification.fireDate = NSDate()
-                localNotification.alertBody = NSLocalizedString("Phonetic is about to be terminated! Please open it again to complete the mission.", comment: "Local Notification - App terminated notification")
+                localNotification.alertBody = NSLocalizedString("App is about to be terminated! Please open it again to complete the mission.", comment: "Local Notification - App terminated notification")
                 UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
             }
             

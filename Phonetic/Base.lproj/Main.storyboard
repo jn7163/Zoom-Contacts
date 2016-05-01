@@ -973,6 +973,9 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" id="Ky8-nP-asx"/>
+                    <connections>
+                        <outlet property="settingButton" destination="phK-eK-XoW" id="9po-3K-yoD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="atl-mj-jNU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1558,12 +1561,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instant Messages Keys" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iQO-ha-HZP">
-                                                    <rect key="frame" x="16" y="0.0" width="517" height="44"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="0Lf-Kp-5Uv">
                                                     <rect key="frame" x="541" y="6" width="51" height="31"/>
                                                     <constraints>
@@ -1574,6 +1571,12 @@
                                                         <action selector="cleanInstantMessageAddressesKeysSwitchDidTap:" destination="814-Dy-ps6" eventType="valueChanged" id="sJd-ki-gNN"/>
                                                     </connections>
                                                 </switch>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instant Messages Keys" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iQO-ha-HZP">
+                                                    <rect key="frame" x="16" y="0.0" width="517" height="44"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="iQO-ha-HZP" firstAttribute="leading" secondItem="QnN-yM-xEn" secondAttribute="leading" constant="16" id="3jd-TI-Wep"/>
@@ -1646,6 +1649,7 @@
                         <outlet property="polyphonicButton" destination="06g-Hf-WWg" id="VDQ-fB-Twa"/>
                         <outlet property="quickSearchSelectionIndicator" destination="nVA-4v-Nav" id="XzD-do-qaL"/>
                         <outlet property="quickSearchSelectionLabel" destination="Buy-mD-J4T" id="R3a-l1-4A9"/>
+                        <outlet property="tutorialButton" destination="9bk-kD-Wba" id="DGC-cY-3Ml"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D2O-nL-XVJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
