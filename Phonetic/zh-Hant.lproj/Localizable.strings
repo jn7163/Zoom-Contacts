@@ -131,7 +131,7 @@
 "e.g: Add a phonetic Nickname / %@ key for `叶梓萱` with `YZX`. Then you can enter `YZX` to search the specific name." = "比如：為 “葉梓萱” 添加 “YZ​​X” 的暱稱或%@，直接輸入 “YZX” 就可以快速搜索到聯繫人。";
 
 /* Table view footer title */
-"⚠️ Be Careful. All of those keys including you manually added before will be removed!" = "⚠️ 請注意！包括之前手動添加的欄位都將被清除掉。";
+"⚠️ Be Careful. All of those keys including you manually added before will be removed!「Select keys you want to delete and go back to Main Interface, Long Press to clean」" = "⚠️ 請注意！包括之前手動添加的字段都將被清除掉。「選擇需要刪除的欄位，回到主界面，長按執行按鈕來清除」";
 
 /* UIAlertController message */
 "Please tap the yellow button to complete settings. This message is only displayed once!" = "請點擊黃色按鈕來完成設置。本條消息只顯示一次！";
