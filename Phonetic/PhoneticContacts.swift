@@ -84,80 +84,75 @@ class PhoneticContacts {
         aborted      = !isProcessing
         
         // uncomment the following line if you want to remove all Simulator's Contacts first.
-//                self.removeAllContactsOfSimulator()
+        //                self.removeAllContactsOfSimulator()
         
         self.insertNewContactsForSimulatorIfNeeded(250)
         //                self.insertNewContactsForDevice(100)
         
         
-        dispatch_async(dispatch_get_global_queue(Int(QOS_CLASS_BACKGROUND.rawValue), 0)) {
+        dispatch_async(GlobalBackgroundQueue) {
             
             var index = 1
             let count = self.contactsTotalCount
             
-            do {
-                try self.contactStore.enumerateContactsWithFetchRequest(CNContactFetchRequest(keysToFetch: self.keysToFetch), usingBlock: { (contact, _) -> Void in
-                    
-                    guard self.isProcessing else {
-                        self.aborted = true
-                        return
-                    }
-                    
-                    if !contact.familyName.isEmpty || !contact.givenName.isEmpty {
-                        let mutableContact: CNMutableContact = contact.mutableCopy() as! CNMutableContact
-                        
-                        var familyName          = ""
-                        var givenName           = ""
-                        var phoneticFamilyBrief = ""
-                        var phoneticGivenBrief  = ""
-                        
-                        var shouldAddQuickSearchKey = false
-                        
-                        // modify Contact
-                        if let family = mutableContact.valueForKey(CNContactFamilyNameKey) as? String {
-                            
-                            familyName = family
-                            
-                            if let phoneticFamily = self.phonetic(family, needFix: self.fixPolyphonicCharacters) {
-                                phoneticFamilyBrief  = phoneticFamily.brief
-                                
-                                if self.antiPhonetic(family) {
-                                    shouldAddQuickSearchKey = true
-                                }
-                            }
-                        }
-                        
-                        if let given = mutableContact.valueForKey(CNContactGivenNameKey) as? String {
-                            
-                            givenName = given
-                            
-                            if let phoneticGiven = self.phonetic(given, needFix: false) {
-                                phoneticGivenBrief  = phoneticGiven.brief
-
-                                if self.antiPhonetic(given) {
-                                    shouldAddQuickSearchKey = true
-                                }
-                            }
-                        }
-                        
-                        if shouldAddQuickSearchKey {
-                            
-                            self.addPhoneticNameForQuickSearchIfNeeded(mutableContact, familyBrief: phoneticFamilyBrief, givenBrief: phoneticGivenBrief)
-                            
-                            self.saveContact(mutableContact)
-                            
-                            let result = familyName + givenName + "「" + phoneticFamilyBrief + phoneticGivenBrief + "」"
-                            
-                            self.handlingResult(resultHandler, result: result, index: index, total: count)
-                        }
-                        
-                        index += 1
-                    }
-                })
-            } catch {
+            _ = try? self.contactStore.enumerateContactsWithFetchRequest(CNContactFetchRequest(keysToFetch: self.keysToFetch), usingBlock: { (contact, _) -> Void in
                 
-                DEBUGLog("fetching Contacts failed ! - \(error)")
-            }
+                guard self.isProcessing else {
+                    self.aborted = true
+                    return
+                }
+                
+                if !contact.familyName.isEmpty || !contact.givenName.isEmpty {
+                    let mutableContact: CNMutableContact = contact.mutableCopy() as! CNMutableContact
+                    
+                    var familyName          = ""
+                    var givenName           = ""
+                    var phoneticFamilyBrief = ""
+                    var phoneticGivenBrief  = ""
+                    
+                    var shouldAddQuickSearchKey = false
+                    
+                    // modify Contact
+                    if let family = mutableContact.valueForKey(CNContactFamilyNameKey) as? String {
+                        
+                        familyName = family
+                        
+                        if let phoneticFamily = self.phonetic(family, needFix: self.fixPolyphonicCharacters) {
+                            phoneticFamilyBrief  = phoneticFamily.brief
+                            
+                            if self.antiPhonetic(family) {
+                                shouldAddQuickSearchKey = true
+                            }
+                        }
+                    }
+                    
+                    if let given = mutableContact.valueForKey(CNContactGivenNameKey) as? String {
+                        
+                        givenName = given
+                        
+                        if let phoneticGiven = self.phonetic(given, needFix: false) {
+                            phoneticGivenBrief  = phoneticGiven.brief
+                            
+                            if self.antiPhonetic(given) {
+                                shouldAddQuickSearchKey = true
+                            }
+                        }
+                    }
+                    
+                    if shouldAddQuickSearchKey {
+                        
+                        self.addPhoneticNameForQuickSearchIfNeeded(mutableContact, familyBrief: phoneticFamilyBrief, givenBrief: phoneticGivenBrief)
+                        
+                        self.saveContact(mutableContact)
+                        
+                        let result = familyName + givenName + "「" + phoneticFamilyBrief + phoneticGivenBrief + "」"
+                        
+                        self.handlingResult(resultHandler, result: result, index: index, total: count)
+                    }
+                    
+                }
+                index += 1
+            })
             
             self.isProcessing = false
             
@@ -179,52 +174,48 @@ class PhoneticContacts {
         isProcessing = true
         aborted = !isProcessing
         
-        dispatch_async(dispatch_get_global_queue(Int(QOS_CLASS_BACKGROUND.rawValue), 0)) {
+        dispatch_async(GlobalBackgroundQueue) {
             
             var index = 1
             let count = self.contactsTotalCount
             
-            do {
-                try self.contactStore.enumerateContactsWithFetchRequest(CNContactFetchRequest(keysToFetch: self.keysToFetch), usingBlock: { (contact, _) -> Void in
-                    
-                    guard self.isProcessing else {
-                        self.aborted = true
-                        return
-                    }
-                    
-                    let mutableContact: CNMutableContact = contact.mutableCopy() as! CNMutableContact
-                    
-                    // modify Contact
-                    /// only clean who has Mandarin Latin.
-                    /// Some english names may also have phonetic keys which you don't want to be cleaned.
-                    
-                    var shouldClean = false
-                    
-                    if let family = mutableContact.valueForKey(CNContactFamilyNameKey) as? String {
-                        if self.antiPhonetic(family) {
-                            shouldClean = true
-                        }
-                    }
-                    
-                    if let given = mutableContact.valueForKey(CNContactGivenNameKey) as? String {
-                        if self.antiPhonetic(given) {
-                            shouldClean = true
-                        }
-                    }
-                    
-                    if shouldClean {
-                        self.removePhoneticKeysIfNeeded(mutableContact)
-                        self.saveContact(mutableContact)
-                    }
-                    
-                    self.handlingResult(resultHandler, result: nil, index: index, total: count)
-                    
-                    index += 1
-                })
-            } catch {
+            
+            _ = try? self.contactStore.enumerateContactsWithFetchRequest(CNContactFetchRequest(keysToFetch: self.keysToFetch), usingBlock: { (contact, _) -> Void in
                 
-                DEBUGLog("fetching Contacts failed ! - \(error)")
-            }
+                guard self.isProcessing else {
+                    self.aborted = true
+                    return
+                }
+                
+                let mutableContact: CNMutableContact = contact.mutableCopy() as! CNMutableContact
+                
+                // modify Contact
+                /// only clean who has Mandarin Latin.
+                /// Some english names may also have phonetic keys which you don't want to be cleaned.
+                
+                var shouldClean = false
+                
+                if let family = mutableContact.valueForKey(CNContactFamilyNameKey) as? String {
+                    if self.antiPhonetic(family) {
+                        shouldClean = true
+                    }
+                }
+                
+                if let given = mutableContact.valueForKey(CNContactGivenNameKey) as? String {
+                    if self.antiPhonetic(given) {
+                        shouldClean = true
+                    }
+                }
+                
+                if shouldClean {
+                    self.removePhoneticKeysIfNeeded(mutableContact)
+                    self.saveContact(mutableContact)
+                }
+                
+                self.handlingResult(resultHandler, result: nil, index: index, total: count)
+                
+                index += 1
+            })
             
             self.isProcessing = false
             
@@ -233,17 +224,30 @@ class PhoneticContacts {
     }
     
     var getContactsTotalCount: Int {
-        let predicate = CNContact.predicateForContactsInContainerWithIdentifier(contactStore.defaultContainerIdentifier())
+        let contacts = fetchAllContacts(keysToFetch: [CNContactGivenNameKey, CNContactFamilyNameKey])
+        return contacts.count
+    }
+    
+    private func fetchAllContacts(keysToFetch keys: [String]) -> [CNContact] {
         
-        do {
-            let contacts = try self.contactStore.unifiedContactsMatchingPredicate(predicate, keysToFetch: [CNContactGivenNameKey, CNContactFamilyNameKey])
-            return contacts.count
-        } catch {
-            
-            DEBUGLog("\(error)")
-            
-            return 0
+        AppDelegate().requestContactsAccess { (accessGranted) in
+            guard accessGranted else { return }
         }
+        
+        let containers = (try? contactStore.containersMatchingPredicate(nil)) ?? []
+        
+        var contacts: [CNContact] = []
+        
+        _ = containers.map() {
+            
+            let predicate = CNContact.predicateForContactsInContainerWithIdentifier($0.identifier)
+            
+            if let containerContacts = try? contactStore.unifiedContactsMatchingPredicate(predicate, keysToFetch: keys) {
+                contacts.appendContentsOf(containerContacts)
+            }
+        }
+        
+        return contacts
     }
     
     private func handlingCompletion(handle: CompletionHandler) {
@@ -257,6 +261,9 @@ class PhoneticContacts {
                 localNotification.fireDate = NSDate()
                 localNotification.alertBody = NSLocalizedString("Mission Completed !", comment: "Local Notification - alert body")
                 UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
+                
+                // reset icon badge number to zero for OCD
+                UIApplication.sharedApplication().applicationIconBadgeNumber = 0
             }
         default:
             break
@@ -376,7 +383,7 @@ class PhoneticContacts {
                 let phoneticParts = source.componentsSeparatedByString(" ")
                 source = NSMutableString()
                 brief = briefInitial(phoneticParts)
-
+                
             } else {
                 brief = briefInitial([source as! String])
             }
@@ -416,7 +423,7 @@ private extension PhoneticContacts {
 
 
 extension PhoneticContacts {
-
+    
     private var fixPolyphonicCharacters: Bool {
         return userDefaults.getBool(kFixPolyphonicChar, defaultKeyValue: kFixPolyphonicCharDefaultBool)
     }
