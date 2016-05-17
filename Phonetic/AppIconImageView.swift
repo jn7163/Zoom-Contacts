@@ -14,7 +14,7 @@ class AppIconImageView: UIImageView {
         super.init(coder: aDecoder)
         image              = UIImage(named: "iTranslator")
         clipsToBounds      = true
-        layer.cornerRadius = frame.width * 0.25
+        layer.cornerRadius = frame.width * 0.23
         
         let recognizer = UITapGestureRecognizer(target: self, action: #selector(iconDidTap))
         addGestureRecognizer(recognizer)

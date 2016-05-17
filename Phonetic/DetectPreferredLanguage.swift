@@ -12,10 +12,13 @@ import Foundation
 struct DetectPreferredLanguage {
     
     static var isChineseLanguage: Bool {
-        if let langCode = NSLocale.preferredLanguages().first {
-            return isChineseLanguage(langCode)
-        }
-        return false
+        guard let langCode = NSLocale.preferredLanguages().first else { return false }
+        return isChineseLanguage(langCode)
+    }
+    
+    static var isSimplifiedChinese: Bool {
+        guard let langCode = NSLocale.preferredLanguages().first else { return false }
+        return langCode.containsString("zh-Hans")
     }
     
     // ["zh-Hant-US", "en-US", "zh-Hans-US", "zh-HK", "zh-TW"]
