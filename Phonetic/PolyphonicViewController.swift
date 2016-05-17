@@ -15,7 +15,6 @@ class PolyphonicViewController: BaseTableViewController {
     
     private var names: NSDictionary!
     private var nameSectionTitles: NSArray!
-    private var nameIndexTitles: [String]!
     
     @IBOutlet weak var masterSwitch: UISwitch! {
         didSet {
@@ -46,24 +45,23 @@ class PolyphonicViewController: BaseTableViewController {
             "B" : [PolyphonicChar.b1, PolyphonicChar.b2, PolyphonicChar.b3],
             "C" : [PolyphonicChar.c1, PolyphonicChar.c2, PolyphonicChar.c3],
             "D" : [PolyphonicChar.d1],
-            "G" : [PolyphonicChar.g1, PolyphonicChar.g2],
+            "G" : [PolyphonicChar.g1, PolyphonicChar.g2, PolyphonicChar.g3, PolyphonicChar.g4],
             "H" : [PolyphonicChar.h1],
-            "J" : [PolyphonicChar.j1],
+            "J" : [PolyphonicChar.j1, PolyphonicChar.j2],
             "K" : [PolyphonicChar.k1],
             "M" : [PolyphonicChar.m1, PolyphonicChar.m2],
+            "N" : [PolyphonicChar.n1],
             "O" : [PolyphonicChar.o1],
             "P" : [PolyphonicChar.p1, PolyphonicChar.p2],
-            "Q" : [PolyphonicChar.q1, PolyphonicChar.q2, PolyphonicChar.q3],
+            "Q" : [PolyphonicChar.q1, PolyphonicChar.q2, PolyphonicChar.q3, PolyphonicChar.q4],
             "R" : [PolyphonicChar.r1],
-            "S" : [PolyphonicChar.s1, PolyphonicChar.s2, PolyphonicChar.s3],
-            "X" : [PolyphonicChar.x1],
+            "S" : [PolyphonicChar.s1, PolyphonicChar.s2, PolyphonicChar.s3, PolyphonicChar.s4],
+            "X" : [PolyphonicChar.x1, PolyphonicChar.x2],
             "Y" : [PolyphonicChar.y1, PolyphonicChar.y2, PolyphonicChar.y3, PolyphonicChar.y4],
             "Z" : [PolyphonicChar.z1, PolyphonicChar.z2, PolyphonicChar.z3, PolyphonicChar.z4, PolyphonicChar.z5]
         ]
 
         nameSectionTitles = (names.allKeys as! [String]).sort()
-        nameIndexTitles   = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -106,7 +104,9 @@ class PolyphonicViewController: BaseTableViewController {
     
 }
 
+
 // MARK: - Table View Data Source
+
 extension PolyphonicViewController {
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -123,33 +123,37 @@ extension PolyphonicViewController {
         return nameSectionTitles.objectAtIndex(section) as? String
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCellWithIdentifier(String(PolyphonicTableViewCell), forIndexPath: indexPath) as? PolyphonicTableViewCell {
-            let sectionTitle = nameSectionTitles.objectAtIndex(indexPath.section)
-            let sectionNames = names.objectForKey(sectionTitle)
-            if let name = sectionNames?.objectAtIndex(indexPath.row) as? Polyphonic {
-                cell.nameLabel?.text = name.character
-                cell.polyphonicLabel?.text = "『 \(name.pinyin) 』"
-                cell.polyphonicSwitch?.on = name.on
-                cell.polyphonicKey = name.key
-            }
-            
-            return cell
-        }
-        return UITableViewCell()
-    }
-    
     override func sectionIndexTitlesForTableView(tableView: UITableView) -> [String]? {
-        return nameIndexTitles
+        return UILocalizedIndexedCollation.currentCollation().sectionIndexTitles
     }
     
-    override func tableView(tableView: UITableView, sectionForSectionIndexTitle title: String, atIndex index: Int) -> Int {
-        return nameSectionTitles.indexOfObject(title)
+    //    override func tableView(tableView: UITableView, sectionForSectionIndexTitle title: String, atIndex index: Int) -> Int {
+    //        return UILocalizedIndexedCollation.currentCollation().sectionForSectionIndexTitleAtIndex(index)
+    //    }
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        guard let cell = tableView.dequeueReusableCellWithIdentifier(String(PolyphonicTableViewCell), forIndexPath: indexPath) as? PolyphonicTableViewCell else {
+            return UITableViewCell()
+        }
+        
+        let sectionTitle = nameSectionTitles.objectAtIndex(indexPath.section)
+        let sectionNames = names.objectForKey(sectionTitle)
+        if let name = sectionNames?.objectAtIndex(indexPath.row) as? Polyphonic {
+            cell.nameLabel?.text = name.character
+            cell.polyphonicLabel?.text = "『 \(name.pinyin) 』"
+            cell.polyphonicSwitch?.on = name.on
+            cell.polyphonicKey = name.key
+        }
+        
+        return cell
     }
     
 }
 
+
 // MARK: - Table View Delegate
+
 extension PolyphonicViewController {
     
     override func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
@@ -164,6 +168,7 @@ extension PolyphonicViewController {
 
 
 // MARK: - Rotation
+
 extension PolyphonicViewController {
     
     override func willRotateToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval) {
