@@ -13,6 +13,9 @@
 /* navigation item title - About */
 "About" = "关于";
 
+/* SettingsNavigationController title - Polyphonic Chararcters */
+"Polyphonic Characters" = "多音字";
+
 /* SettingsNavigationController title - Additional Settings */
 "Additional Settings" = "更多设置";
 
