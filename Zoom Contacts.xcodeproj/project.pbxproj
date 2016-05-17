@@ -60,7 +60,6 @@
 		B19CB8461CD3D259006C1AD9 /* CWStatusBarNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19CB8431CD3D259006C1AD9 /* CWStatusBarNotification.swift */; };
 		B19CB8471CD3D259006C1AD9 /* CWStatusBarNotificationUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19CB8441CD3D259006C1AD9 /* CWStatusBarNotificationUtils.swift */; };
 		B19CB8481CD3D259006C1AD9 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19CB8451CD3D259006C1AD9 /* Toast.swift */; };
-		B19CB84C1CD47BF5006C1AD9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B19CB84B1CD47BF5006C1AD9 /* main.m */; };
 		B1A2AF4F1C8078120080A261 /* PhoneticContacts+Polyphonic.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A2AF4E1C8078120080A261 /* PhoneticContacts+Polyphonic.swift */; };
 		B1B1CB631C5E25E300AD7E73 /* ViewController+Rate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B1CB621C5E25E300AD7E73 /* ViewController+Rate.swift */; };
 		B1C5BBEE1CA27EA9009B0A71 /* UIDevice+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C5BBED1CA27EA9009B0A71 /* UIDevice+Extension.swift */; };
@@ -161,8 +160,6 @@
 		B19CB8431CD3D259006C1AD9 /* CWStatusBarNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWStatusBarNotification.swift; sourceTree = "<group>"; };
 		B19CB8441CD3D259006C1AD9 /* CWStatusBarNotificationUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWStatusBarNotificationUtils.swift; sourceTree = "<group>"; };
 		B19CB8451CD3D259006C1AD9 /* Toast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
-		B19CB84B1CD47BF5006C1AD9 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		B19CB84F1CD48790006C1AD9 /* ZoomContacts-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ZoomContacts-Bridging-Header.h"; sourceTree = "<group>"; };
 		B1A2AF4E1C8078120080A261 /* PhoneticContacts+Polyphonic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PhoneticContacts+Polyphonic.swift"; sourceTree = "<group>"; };
 		B1B1CB621C5E25E300AD7E73 /* ViewController+Rate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+Rate.swift"; sourceTree = "<group>"; };
 		B1C5BBED1CA27EA9009B0A71 /* UIDevice+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIDevice+Extension.swift"; sourceTree = "<group>"; };
@@ -339,8 +336,6 @@
 				B1159B781C59045800F16037 /* LaunchScreen.storyboard */,
 				B19CB8351CD370A3006C1AD9 /* InfoPlist.strings */,
 				B16FEB2F1C779F6400FEB550 /* Localizable.strings */,
-				B19CB84B1CD47BF5006C1AD9 /* main.m */,
-				B19CB84F1CD48790006C1AD9 /* ZoomContacts-Bridging-Header.h */,
 				B1159B7B1C59045800F16037 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -604,7 +599,6 @@
 				B1C8521A1C856AD2005549FD /* DEBUGLog.swift in Sources */,
 				B16942701C6211FB000D5BFE /* AdditionalSettingsViewController.swift in Sources */,
 				B1887A881C639AE900AD9BC2 /* DGElasticPullToRefreshConstants.swift in Sources */,
-				B19CB84C1CD47BF5006C1AD9 /* main.m in Sources */,
 				B1FF84E61C5BC7B70036F8AA /* ViewController+Popover.swift in Sources */,
 				B15CB2A51C5B3C6C002694ED /* WaveView.swift in Sources */,
 				B1C8521C1C856AD2005549FD /* TopMostViewController+Extension.swift in Sources */,
@@ -818,7 +812,8 @@
 				OTHER_SWIFT_FLAGS = "-D DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.iAugus.PhoneticQuickSearch;
 				PRODUCT_NAME = "Zoom Contacts";
-				SWIFT_OBJC_BRIDGING_HEADER = "Phonetic/ZoomContacts-Bridging-Header.h";
+				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -836,7 +831,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.iAugus.PhoneticQuickSearch;
 				PRODUCT_NAME = "Zoom Contacts";
-				SWIFT_OBJC_BRIDGING_HEADER = "Phonetic/ZoomContacts-Bridging-Header.h";
+				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 			};
 			name = Release;
 		};

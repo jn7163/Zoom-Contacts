@@ -53,7 +53,9 @@ class AdditionalSettingsViewController: BaseTableViewController {
         }
     }
     
+    
     // MARK: - Quick Search
+    
     @IBOutlet weak var nicknameSwitch: UISwitch! {
         didSet {
             nicknameSwitch.shouldSwitch(kEnableNickname, defaultBool: kEnableNicknameDefaultBool)
@@ -78,7 +80,8 @@ class AdditionalSettingsViewController: BaseTableViewController {
     }
     
     
-    // MARK: - Clean Phonetic Keys
+    // MARK: - Clean Contacts Keys
+    
     @IBOutlet weak var enableAllCleanPhoneticSwitch: UISwitch! {
         didSet {
             enableAllCleanPhoneticSwitch.shouldSwitch(kEnableAllCleanPhonetic, defaultBool: kEnableAllCleanPhoneticDefaultBool)
@@ -142,7 +145,9 @@ class AdditionalSettingsViewController: BaseTableViewController {
     
 }
 
+
 // MARK: - Life Cycle
+
 extension AdditionalSettingsViewController {
     
     override func loadView() {
@@ -191,7 +196,9 @@ extension AdditionalSettingsViewController {
     
 }
 
+
 // MARK: - Actions of UISwitch
+
 extension AdditionalSettingsViewController {
     
     @IBAction func enableAnimationSwitchDidTap(sender: UISwitch) {
@@ -206,6 +213,7 @@ extension AdditionalSettingsViewController {
     
     
     // MARK: - Master Switch
+    
     @IBAction func statusSwitchDidTap(sender: UISwitch) {
 
         nicknameSwitch.enabled                         = sender.on
@@ -229,6 +237,7 @@ extension AdditionalSettingsViewController {
     
 
     // MARK: - Quick Search
+    
     @IBAction func nicknameSwitchDidTap(sender: UISwitch) {
         
         switchStatusAutomaticallyWithDelay(sender)
@@ -284,7 +293,8 @@ extension AdditionalSettingsViewController {
     }
     
     
-    // MARK: - Clean Phonetic Keys
+    // MARK: - Clean Contacts Keys
+    
     @IBAction func enableAllCleanPhoneticSwitchDidTap(sender: UISwitch) {
         enableAllCleanPhoneticSwitchWithAlert(sender.on)
     }
@@ -334,6 +344,7 @@ extension AdditionalSettingsViewController {
     
     
     // MARK: - Turn On/Off Switch Automatically
+    
     private func switchStatusAutomaticallyWithDelay(sender: UISwitch) {
         
         executeAfterDelay(0.2) { 
@@ -400,7 +411,9 @@ extension AdditionalSettingsViewController {
     }
 }
 
+
 // MARK: - Switch With Alert
+
 extension AdditionalSettingsViewController {
     
     private func enableAllCleanPhoneticSwitchWithAlert(enabled: Bool) {
@@ -461,7 +474,9 @@ extension UISwitch {
     }
 }
 
+
 // MARK: - Configure Subviews
+
 extension AdditionalSettingsViewController {
     
     private func configureQuickSearchSelectionViews() {
@@ -476,7 +491,9 @@ extension AdditionalSettingsViewController {
     
 }
 
+
 // MARK: - Action Sheet for choosing custom key for Quick Search
+
 extension AdditionalSettingsViewController {
     
     internal func alertActionSheetToChooseCustomKeyForQuickSearch() {
@@ -508,17 +525,20 @@ extension AdditionalSettingsViewController {
 
 
 // MARK: -
+
 extension AdditionalSettingsViewController: TableViewHeaderFooterViewWithButtonDelegate {
     
     func tableViewHeaderFooterViewWithButtonDidTap() {
-        if let vc = UIStoryboard.Main.instantiateViewControllerWithIdentifier(String(HelpManualViewController)) as? HelpManualViewController {
-            navigationController?.pushViewController(vc, animated: true)
-        }
+        
+        guard let vc = UIStoryboard.Main.instantiateViewControllerWithIdentifier(String(HelpManualViewController)) as? HelpManualViewController else { return }
+        
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 
 
 // MARK: - Table View Datasource
+
 extension AdditionalSettingsViewController {
     
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -542,7 +562,7 @@ extension AdditionalSettingsViewController {
             headerTitle = NSLocalizedString("Quick Search", comment: "Table view header title")
             
         case 2:
-            headerTitle = NSLocalizedString("Clean Phonetic Keys", comment: "Table view header title")
+            headerTitle = NSLocalizedString("Clean Contacts Keys", comment: "Table view header title")
 
         default: break
         }
@@ -583,6 +603,7 @@ extension AdditionalSettingsViewController {
 
 
 // MARK: - Rotation
+
 extension AdditionalSettingsViewController {
     
     override func didRotateFromInterfaceOrientation(fromInterfaceOrientation: UIInterfaceOrientation) {

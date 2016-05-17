@@ -39,7 +39,7 @@ extension AppDelegate {
         let rollbackIcon = UIApplicationShortcutIcon(templateImageName: "rollback_3d")
         
         let executeItemTitle = NSLocalizedString("Add Phonetic Keys", comment: "")
-        let rollbackItemTitle = NSLocalizedString("Clean Phonetic Keys", comment: "")
+        let rollbackItemTitle = NSLocalizedString("Clean Contacts Keys", comment: "")
         
         // create dynamic shortcut items
         let executeItem = UIMutableApplicationShortcutItem(type: Type.Excute.rawValue, localizedTitle: executeItemTitle, localizedSubtitle: nil, icon: executeIcon, userInfo: nil)

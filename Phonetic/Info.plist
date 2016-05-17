@@ -33,11 +33,15 @@
 	<string>2</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
-	<key>LSApplicationQueriesSchemes</key>
-	<array>
-		<string>tweetbot</string>
-		<string>twitter</string>
-	</array>
+    <key>LSApplicationQueriesSchemes</key>
+    <array>
+        <string>tweetbot</string>
+        <string>twitter</string>
+        <string>moke</string>
+        <string>com.weico.weicopro4</string>
+        <string>weico3</string>
+        <string>sinaweibo</string>
+    </array>
 	<key>LSHasLocalizedDisplayName</key>
 	<true/>
 	<key>LSRequiresIPhoneOS</key>

@@ -31,7 +31,7 @@
 "Cancel" = "取消";
 
 /* Table view header title */
-"Clean Phonetic Keys" = "清除通訊錄欄位";
+"Clean Contacts Keys" = "清除通訊錄欄位";
 
 /* UIAlertAction title - clean all phonetic keys */
 "Clean" = "清除";
@@ -186,7 +186,6 @@
 // 3D Touch items
 
 "Add Phonetic Keys" = "添加拼音欄位";
-"Clean Phonetic Keys" = "清除拼音欄位";
 
 
 "Animation Stopped..." = "動畫已停止...";

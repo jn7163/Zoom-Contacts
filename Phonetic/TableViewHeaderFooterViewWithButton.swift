@@ -22,14 +22,13 @@ class TableViewHeaderFooterViewWithButton: UITableViewHeaderFooterView {
         super.init(reuseIdentifier: reuseIdentifier)
     }
     
-    convenience init(buttonImageName name: String, tintColor: UIColor = .whiteColor(), twinkleInterval: NSTimeInterval = 0.7) {
+    convenience init(buttonImageName name: String, twinkleInterval: NSTimeInterval = 0.7) {
         self.init(reuseIdentifier: nil)
         button = UIButton(type: .Custom)
         button.frame.size = CGSizeMake(18, 18)
         button.center = textLabel!.center
         button.frame.origin.x = textLabel!.frame.maxX + 8.0
-        button.tintColor = tintColor
-        button.setImage(UIImage(named: name)?.imageWithRenderingMode(.AlwaysTemplate), forState: .Normal)
+        button.setImage(UIImage(named: name), forState: .Normal)
         button.addTarget(self, action: #selector(buttonDidTap), forControlEvents: .TouchUpInside)
         addSubview(button)
         
