@@ -25,7 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         application.statusBarStyle = .LightContent
         window?.backgroundColor = UIColor.clearColor()
-                
+        window?.tintColor = GLOBAL_CUSTOM_COLOR
+       
         // clear icon badge number if needed.
         application.applicationIconBadgeNumber = 0
         
