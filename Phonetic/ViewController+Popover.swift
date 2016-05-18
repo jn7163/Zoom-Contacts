@@ -9,7 +9,9 @@
 import UIKit
 import SnapKit
 
+
 // MARK: - Popover view controller even on iPhones
+
 extension ViewController: UIPopoverPresentationControllerDelegate {
     
     internal func popoverInfoViewController() {
@@ -54,7 +56,9 @@ extension ViewController: UIPopoverPresentationControllerDelegate {
         static let preferredMutableContentSize = CGSizeMake(278, preferredMutableContentHeight)
     }
     
+    
     // MARK: - fix size of popover view
+    
     override func didRotateFromInterfaceOrientation(fromInterfaceOrientation: UIInterfaceOrientation) {
                 
         if Popover.currentButton == .Info {
@@ -73,7 +77,9 @@ extension ViewController: UIPopoverPresentationControllerDelegate {
         Popover.popover?.sourceRect.origin.y += 5
     }
     
+    
     // MARK: - configure popover controller
+    
     private func popoverPresentViewController(button: PopoverButton) {
         var rect: CGRect
         var title: String
@@ -102,11 +108,8 @@ extension ViewController: UIPopoverPresentationControllerDelegate {
             
             let nav = UINavigationController(rootViewController: popoverContent)
             nav.completelyTransparentBar()
+            button == .Setting ? nav.navigationBar.backgroundColor = kNavigationBarBackgroundColor : ()
             nav.modalPresentationStyle = .Popover
-            
-            button == .Info ? nav.hidesBarsOnSwipe = true : {
-                nav.navigationBar.backgroundColor = kNavigationBarBackgroundColor
-            }()
             
             Popover.popover = nav.popoverPresentationController
             Popover.popover?.backgroundColor = kNavigationBarBackgroundColor
@@ -138,12 +141,16 @@ extension ViewController: UIPopoverPresentationControllerDelegate {
         }
     }
     
+    
     // MARK: - UIAdaptivePresentationControllerDelegate
+    
     func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
         return .None
     }
     
+    
     // MARK: - for iPhone 6(s) Plus
+    
     func adaptivePresentationStyleForPresentationController(controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {
         return .None
     }
