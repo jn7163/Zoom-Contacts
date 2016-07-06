@@ -4,7 +4,7 @@
 # Zoom Contacts
 
 ![Language](https://img.shields.io/badge/language-Swift%202.2-orange.svg)
-![License](https://img.shields.io/badge/License-Custom%20License%20Based%20on%20MIT-2181C3.svg)
+[![License](https://img.shields.io/badge/License-CC%20Attribution--NonCommercial-E5EC00.svg)](https://creativecommons.org/licenses/by-nc/4.0/)
 [![Homepage](https://img.shields.io/badge/Homepage-iAugus-9021C5.svg)](http://iAugus.com)
 [![Tweet](https://img.shields.io/badge/Tweet-%40iAugux-1B95E0.svg)](https://twitter.com/iaugux)
 
@@ -83,7 +83,7 @@
 
 
 ## License
-`Zoom Contacts` is available under the MIT license. See the `LICENSE` file for more info.
+`Zoom Contacts` is available under the [`CC Attribution-NonCommercial  License`](https://creativecommons.org/licenses/by-nc/4.0/).
 
 `Please do NOT repackage and submit to App Store.`
 
